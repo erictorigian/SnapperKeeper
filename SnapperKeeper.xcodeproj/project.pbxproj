@@ -13,6 +13,7 @@
 		07753F761DA8368E00111D52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07753F751DA8368E00111D52 /* Assets.xcassets */; };
 		07753F791DA8368E00111D52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07753F771DA8368E00111D52 /* LaunchScreen.storyboard */; };
 		07753F811DA836CC00111D52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07753F801DA836CC00111D52 /* GoogleService-Info.plist */; };
+		07AD5C991DA890DA00C9A12C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD5C981DA890DA00C9A12C /* LoginViewController.swift */; };
 		563027488576E975D64AFE80 /* Pods_SnapperKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9D775B3FC2D342FFB7E59E /* Pods_SnapperKeeper.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		07753F781DA8368E00111D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07753F7A1DA8368E00111D52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07753F801DA836CC00111D52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		07AD5C981DA890DA00C9A12C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		07CBDC6B61274BDC12E94D3D /* Pods-SnapperKeeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapperKeeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnapperKeeper/Pods-SnapperKeeper.debug.xcconfig"; sourceTree = "<group>"; };
 		3B9D775B3FC2D342FFB7E59E /* Pods_SnapperKeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapperKeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67836D3ED8BDA8F7024592C9 /* Pods-SnapperKeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapperKeeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnapperKeeper/Pods-SnapperKeeper.release.xcconfig"; sourceTree = "<group>"; };
@@ -51,6 +53,41 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		070E460F1DA8391C00F4A07B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				07753F721DA8368E00111D52 /* Main.storyboard */,
+				07753F771DA8368E00111D52 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		070E46101DA8393900F4A07B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		070E46111DA8394200F4A07B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				07753F701DA8368E00111D52 /* ViewController.swift */,
+				07AD5C981DA890DA00C9A12C /* LoginViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		070E46121DA8394F00F4A07B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				07753F6E1DA8368E00111D52 /* AppDelegate.swift */,
+				07753F7A1DA8368E00111D52 /* Info.plist */,
+				07753F801DA836CC00111D52 /* GoogleService-Info.plist */,
+			);
+			name = "Support Files";
+			sourceTree = "<group>";
+		};
 		07753F621DA8368E00111D52 = {
 			isa = PBXGroup;
 			children = (
@@ -72,13 +109,11 @@
 		07753F6D1DA8368E00111D52 /* SnapperKeeper */ = {
 			isa = PBXGroup;
 			children = (
-				07753F6E1DA8368E00111D52 /* AppDelegate.swift */,
-				07753F701DA8368E00111D52 /* ViewController.swift */,
-				07753F721DA8368E00111D52 /* Main.storyboard */,
+				070E46121DA8394F00F4A07B /* Support Files */,
+				070E46111DA8394200F4A07B /* Controller */,
+				070E46101DA8393900F4A07B /* Model */,
+				070E460F1DA8391C00F4A07B /* View */,
 				07753F751DA8368E00111D52 /* Assets.xcassets */,
-				07753F771DA8368E00111D52 /* LaunchScreen.storyboard */,
-				07753F7A1DA8368E00111D52 /* Info.plist */,
-				07753F801DA836CC00111D52 /* GoogleService-Info.plist */,
 			);
 			path = SnapperKeeper;
 			sourceTree = "<group>";
@@ -176,7 +211,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A667E78CA389EF1A8D75C42F /* [CP] Copy Pods Resources */ = {
@@ -216,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07AD5C991DA890DA00C9A12C /* LoginViewController.swift in Sources */,
 				07753F711DA8368E00111D52 /* ViewController.swift in Sources */,
 				07753F6F1DA8368E00111D52 /* AppDelegate.swift in Sources */,
 			);
