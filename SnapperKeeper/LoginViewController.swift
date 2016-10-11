@@ -22,6 +22,15 @@ class LoginViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        if (FIRAuth.auth()?.currentUser) != nil {
+            performSegue(withIdentifier: SEGUE_LOGGED_IN, sender: nil)
+        }
+
+    }
+    
     
     
     @IBAction func loginButtonPressed(_ sender: AnyObject) {
@@ -31,7 +40,7 @@ class LoginViewController: UIViewController {
                     self.showErrorAlert(title: "Login Error", msg: error.localizedDescription)
                 } else {
                     if user != nil {
-                        //self.performSegue(withIdentifier: SEGUE_LOGGED_IN, sender: nil)
+                        self.performSegue(withIdentifier: SEGUE_LOGGED_IN, sender: nil)
                         print("user: \(user) logged in")
                     }
                 }

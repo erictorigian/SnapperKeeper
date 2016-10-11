@@ -7,19 +7,44 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuthUI
+import FirebaseGoogleAuthUI
+import FirebaseFacebookAuthUI
+import FirebaseTwitterAuthUI
 
-class ViewController: UIViewController {
 
+class ViewController: UIViewController, FIRAuthUIDelegate {
+//    let googleAuthUI = FIRGoogleAuthUI(ClientID: kGoogleClientID)
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-
+	
+    //MARK: - firebaseUI delegate methods
+    func authUI(_ authUI: FIRAuthUI, didSignInWith user: FIRUser?, error: Error?) {
+        
+    }
+    
+    @IBAction func loginButtonPressed(_ sender: AnyObject) {
+        let authUI = FIRAuthUI.default()
+        
+        let options = FIRApp.defaultApp()?.options
+        let clientId = options?.clientID
+        
+        let providers: [FIRAuthProviderUI] = [FIRGoogleAuthUI()]
+        
+        authUI?.delegate = self
+        
+        authUI?.providers = providers
+        
+        let authViewController = authUI?.authViewController();
+        self.present(authViewController!, animated: true, completion: nil)
+        
+        
+    }
 
 }
 

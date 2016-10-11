@@ -8,25 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		07753F6F1DA8368E00111D52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07753F6E1DA8368E00111D52 /* AppDelegate.swift */; };
-		07753F711DA8368E00111D52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07753F701DA8368E00111D52 /* ViewController.swift */; };
 		07753F741DA8368E00111D52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07753F721DA8368E00111D52 /* Main.storyboard */; };
 		07753F761DA8368E00111D52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07753F751DA8368E00111D52 /* Assets.xcassets */; };
 		07753F791DA8368E00111D52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07753F771DA8368E00111D52 /* LaunchScreen.storyboard */; };
 		07753F811DA836CC00111D52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07753F801DA836CC00111D52 /* GoogleService-Info.plist */; };
 		07AD5C991DA890DA00C9A12C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD5C981DA890DA00C9A12C /* LoginViewController.swift */; };
+		07B617211DAC856E00A5398E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B617201DAC856E00A5398E /* ProfileViewController.swift */; };
+		07B617231DAC8D1300A5398E /* SnapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B617221DAC8D1300A5398E /* SnapCell.swift */; };
+		07C13A061DA9EC6900EB1851 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C13A051DA9EC6900EB1851 /* Constants.swift */; };
+		07C13A081DA9ECFF00EB1851 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C13A071DA9ECFF00EB1851 /* MainViewController.swift */; };
 		563027488576E975D64AFE80 /* Pods_SnapperKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9D775B3FC2D342FFB7E59E /* Pods_SnapperKeeper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		07753F6B1DA8368E00111D52 /* SnapperKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapperKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07753F6E1DA8368E00111D52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		07753F701DA8368E00111D52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		07753F731DA8368E00111D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07753F751DA8368E00111D52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07753F781DA8368E00111D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07753F7A1DA8368E00111D52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07753F801DA836CC00111D52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		07AD5C981DA890DA00C9A12C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		07B617201DAC856E00A5398E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		07B617221DAC8D1300A5398E /* SnapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapCell.swift; sourceTree = "<group>"; };
+		07C13A051DA9EC6900EB1851 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		07C13A071DA9ECFF00EB1851 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		07CBDC6B61274BDC12E94D3D /* Pods-SnapperKeeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapperKeeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnapperKeeper/Pods-SnapperKeeper.debug.xcconfig"; sourceTree = "<group>"; };
 		3B9D775B3FC2D342FFB7E59E /* Pods_SnapperKeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapperKeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67836D3ED8BDA8F7024592C9 /* Pods-SnapperKeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapperKeeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnapperKeeper/Pods-SnapperKeeper.release.xcconfig"; sourceTree = "<group>"; };
@@ -58,6 +64,7 @@
 			children = (
 				07753F721DA8368E00111D52 /* Main.storyboard */,
 				07753F771DA8368E00111D52 /* LaunchScreen.storyboard */,
+				07B617221DAC8D1300A5398E /* SnapCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -72,8 +79,9 @@
 		070E46111DA8394200F4A07B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				07753F701DA8368E00111D52 /* ViewController.swift */,
 				07AD5C981DA890DA00C9A12C /* LoginViewController.swift */,
+				07C13A071DA9ECFF00EB1851 /* MainViewController.swift */,
+				07B617201DAC856E00A5398E /* ProfileViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -109,6 +117,7 @@
 		07753F6D1DA8368E00111D52 /* SnapperKeeper */ = {
 			isa = PBXGroup;
 			children = (
+				07C13A041DA9EC5900EB1851 /* Services */,
 				070E46121DA8394F00F4A07B /* Support Files */,
 				070E46111DA8394200F4A07B /* Controller */,
 				070E46101DA8393900F4A07B /* Model */,
@@ -116,6 +125,14 @@
 				07753F751DA8368E00111D52 /* Assets.xcassets */,
 			);
 			path = SnapperKeeper;
+			sourceTree = "<group>";
+		};
+		07C13A041DA9EC5900EB1851 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				07C13A051DA9EC6900EB1851 /* Constants.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		DBC191CC919FE29987E75959 /* Frameworks */ = {
@@ -252,8 +269,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				07AD5C991DA890DA00C9A12C /* LoginViewController.swift in Sources */,
-				07753F711DA8368E00111D52 /* ViewController.swift in Sources */,
 				07753F6F1DA8368E00111D52 /* AppDelegate.swift in Sources */,
+				07B617211DAC856E00A5398E /* ProfileViewController.swift in Sources */,
+				07B617231DAC8D1300A5398E /* SnapCell.swift in Sources */,
+				07C13A061DA9EC6900EB1851 /* Constants.swift in Sources */,
+				07C13A081DA9ECFF00EB1851 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +317,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -347,6 +368,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
