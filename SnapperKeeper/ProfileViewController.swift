@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController {
         if let user = FIRAuth.auth()?.currentUser {
             let name = user.displayName
             let email = user.email
-            let photoUrl = user.photoURL
+//            let photoUrl = user.photoURL
             let uid = user.uid;
             
             usernameField.text = name

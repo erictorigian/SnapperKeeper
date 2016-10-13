@@ -15,8 +15,10 @@
 		07AD5C991DA890DA00C9A12C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD5C981DA890DA00C9A12C /* LoginViewController.swift */; };
 		07B617211DAC856E00A5398E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B617201DAC856E00A5398E /* ProfileViewController.swift */; };
 		07B617231DAC8D1300A5398E /* SnapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B617221DAC8D1300A5398E /* SnapCell.swift */; };
+		07B617251DAC956A00A5398E /* NewSnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B617241DAC956A00A5398E /* NewSnapViewController.swift */; };
 		07C13A061DA9EC6900EB1851 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C13A051DA9EC6900EB1851 /* Constants.swift */; };
 		07C13A081DA9ECFF00EB1851 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C13A071DA9ECFF00EB1851 /* MainViewController.swift */; };
+		07FACC941DAEE62F00A43557 /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FACC931DAEE62F00A43557 /* Snap.swift */; };
 		563027488576E975D64AFE80 /* Pods_SnapperKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9D775B3FC2D342FFB7E59E /* Pods_SnapperKeeper.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,9 +33,11 @@
 		07AD5C981DA890DA00C9A12C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		07B617201DAC856E00A5398E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		07B617221DAC8D1300A5398E /* SnapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapCell.swift; sourceTree = "<group>"; };
+		07B617241DAC956A00A5398E /* NewSnapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSnapViewController.swift; sourceTree = "<group>"; };
 		07C13A051DA9EC6900EB1851 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		07C13A071DA9ECFF00EB1851 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		07CBDC6B61274BDC12E94D3D /* Pods-SnapperKeeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapperKeeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnapperKeeper/Pods-SnapperKeeper.debug.xcconfig"; sourceTree = "<group>"; };
+		07FACC931DAEE62F00A43557 /* Snap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
 		3B9D775B3FC2D342FFB7E59E /* Pods_SnapperKeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapperKeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67836D3ED8BDA8F7024592C9 /* Pods-SnapperKeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapperKeeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnapperKeeper/Pods-SnapperKeeper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +76,7 @@
 		070E46101DA8393900F4A07B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				07FACC931DAEE62F00A43557 /* Snap.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -82,6 +87,7 @@
 				07AD5C981DA890DA00C9A12C /* LoginViewController.swift */,
 				07C13A071DA9ECFF00EB1851 /* MainViewController.swift */,
 				07B617201DAC856E00A5398E /* ProfileViewController.swift */,
+				07B617241DAC956A00A5398E /* NewSnapViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -274,6 +280,8 @@
 				07B617231DAC8D1300A5398E /* SnapCell.swift in Sources */,
 				07C13A061DA9EC6900EB1851 /* Constants.swift in Sources */,
 				07C13A081DA9ECFF00EB1851 /* MainViewController.swift in Sources */,
+				07B617251DAC956A00A5398E /* NewSnapViewController.swift in Sources */,
+				07FACC941DAEE62F00A43557 /* Snap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -190,19 +190,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="131" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SnapName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07G-pO-nky">
-                                                    <frame key="frameInset" minY="91" width="128" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SnapName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07G-pO-nky">
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jJ2-ZE-pb8">
-                                                    <frame key="frameInset" width="128" height="91"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jJ2-ZE-pb8"/>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="jJ2-ZE-pb8" firstAttribute="leading" secondItem="DyG-4E-MLO" secondAttribute="leading" id="POj-Vb-Ifa"/>
+                                            <constraint firstItem="jJ2-ZE-pb8" firstAttribute="top" secondItem="DyG-4E-MLO" secondAttribute="top" id="S2q-Dh-avk"/>
+                                            <constraint firstItem="07G-pO-nky" firstAttribute="bottom" secondItem="DyG-4E-MLO" secondAttribute="bottomMargin" id="TxB-p3-jlq"/>
+                                            <constraint firstItem="jJ2-ZE-pb8" firstAttribute="leading" secondItem="07G-pO-nky" secondAttribute="leading" id="U7K-db-RPP"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="jJ2-ZE-pb8" secondAttribute="trailing" constant="-5" id="W79-Uu-NlF"/>
+                                            <constraint firstItem="jJ2-ZE-pb8" firstAttribute="trailing" secondItem="07G-pO-nky" secondAttribute="trailing" id="d8r-nQ-1bz"/>
+                                            <constraint firstItem="07G-pO-nky" firstAttribute="top" secondItem="jJ2-ZE-pb8" secondAttribute="bottom" id="nob-J7-sTf"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="jJ2-ZE-pb8" id="Y7I-4R-7La"/>
                                             <outlet property="nameLabel" destination="07G-pO-nky" id="CiX-C8-re4"/>
@@ -210,11 +214,27 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ql-Uh-REq">
+                                <items>
+                                    <barButtonItem systemItem="organize" id="XBN-WW-8Tq"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="B9f-jT-khF"/>
+                                    <barButtonItem systemItem="search" id="cek-nF-ypo"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="53G-9H-v1z"/>
+                                    <barButtonItem systemItem="add" id="h79-h2-HNU">
+                                        <connections>
+                                            <segue destination="IaE-RT-uJc" kind="show" id="iwS-nD-wrQ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="1ql-Uh-REq" firstAttribute="trailing" secondItem="hM1-7J-OYo" secondAttribute="trailing" id="7QO-Op-MVU"/>
                             <constraint firstAttribute="trailing" secondItem="hM1-7J-OYo" secondAttribute="trailing" id="RyR-dN-0Pp"/>
                             <constraint firstItem="agZ-QD-w9A" firstAttribute="top" secondItem="hM1-7J-OYo" secondAttribute="bottom" constant="73" id="TsU-nP-4f0"/>
+                            <constraint firstItem="1ql-Uh-REq" firstAttribute="bottom" secondItem="agZ-QD-w9A" secondAttribute="top" id="bUc-sd-fph"/>
+                            <constraint firstItem="1ql-Uh-REq" firstAttribute="leading" secondItem="hM1-7J-OYo" secondAttribute="leading" id="pa8-Sf-MSV"/>
                             <constraint firstItem="hM1-7J-OYo" firstAttribute="leading" secondItem="KHS-wA-JM7" secondAttribute="leading" id="u1I-Og-f6l"/>
                             <constraint firstItem="hM1-7J-OYo" firstAttribute="top" secondItem="KHS-wA-JM7" secondAttribute="top" id="wsr-Yx-PKX"/>
                         </constraints>
@@ -234,6 +254,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yJ2-Dl-ey1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1631.2" y="158.77061469265368"/>
+        </scene>
+        <!--New Snap-->
+        <scene sceneID="0ov-k7-HBF">
+            <objects>
+                <viewController id="IaE-RT-uJc" customClass="NewSnapViewController" customModule="SnapperKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zpW-dx-sZG"/>
+                        <viewControllerLayoutGuide type="bottom" id="lMI-fr-bep"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2rE-x1-KgW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Snap Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ns7-zX-On8">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A9C-8D-iiY"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdn-q6-ec0">
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveSnapButtonPressed:" destination="IaE-RT-uJc" eventType="touchUpInside" id="lnA-dF-zVb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A9C-8D-iiY" firstAttribute="leading" secondItem="2rE-x1-KgW" secondAttribute="leadingMargin" id="6Yw-wa-zMf"/>
+                            <constraint firstItem="A9C-8D-iiY" firstAttribute="leading" secondItem="Ns7-zX-On8" secondAttribute="leading" id="8Qg-gh-xBx"/>
+                            <constraint firstItem="Ns7-zX-On8" firstAttribute="centerX" secondItem="rdn-q6-ec0" secondAttribute="centerX" id="MEq-ql-UWn"/>
+                            <constraint firstItem="A9C-8D-iiY" firstAttribute="top" secondItem="zpW-dx-sZG" secondAttribute="bottom" constant="8" symbolic="YES" id="QGc-HV-xgX"/>
+                            <constraint firstItem="rdn-q6-ec0" firstAttribute="top" secondItem="Ns7-zX-On8" secondAttribute="bottom" constant="19" id="YgC-jQ-e6e"/>
+                            <constraint firstItem="Ns7-zX-On8" firstAttribute="top" secondItem="A9C-8D-iiY" secondAttribute="bottom" constant="17" id="cSz-ys-YXJ"/>
+                            <constraint firstItem="A9C-8D-iiY" firstAttribute="trailing" secondItem="2rE-x1-KgW" secondAttribute="trailingMargin" id="cgq-s3-O5E"/>
+                            <constraint firstItem="A9C-8D-iiY" firstAttribute="trailing" secondItem="Ns7-zX-On8" secondAttribute="trailing" id="wpb-jw-u9T"/>
+                            <constraint firstItem="lMI-fr-bep" firstAttribute="top" secondItem="rdn-q6-ec0" secondAttribute="bottom" constant="287" id="yC2-T7-tzY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Snap" id="fsU-Vo-8Xb"/>
+                    <connections>
+                        <outlet property="snapNameField" destination="Ns7-zX-On8" id="QND-1f-Qn8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="69B-ul-Pt4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1624.8" y="819.94002998500753"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2gs-5u-6UH">
