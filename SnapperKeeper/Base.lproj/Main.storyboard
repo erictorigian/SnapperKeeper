@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -222,7 +222,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="53G-9H-v1z"/>
                                     <barButtonItem systemItem="add" id="h79-h2-HNU">
                                         <connections>
-                                            <segue destination="IaE-RT-uJc" kind="show" id="iwS-nD-wrQ"/>
+                                            <segue destination="IaE-RT-uJc" kind="show" identifier="addSnap" id="YZ6-bP-lZl"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -295,12 +295,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Snap" id="fsU-Vo-8Xb"/>
                     <connections>
+                        <outlet property="snapImageField" destination="A9C-8D-iiY" id="EGD-EC-eVC"/>
                         <outlet property="snapNameField" destination="Ns7-zX-On8" id="QND-1f-Qn8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="69B-ul-Pt4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1624.8" y="819.94002998500753"/>
+            <point key="canvasLocation" x="1631" y="924"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2gs-5u-6UH">

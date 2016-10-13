@@ -23,6 +23,7 @@ let SEGUE_LOGGED_IN = "loggedIn"
 let SEGUE_SHOW_PROFILE = "showProfile"
 let SEGUE_LOG_OUT = "signOut"
 let SEGUE_LIST_DETAILS = "showListDetails"
+let SEGUE_ADD_SNAP = "addSnap"
 
 
 //Status codes
