@@ -43,6 +43,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>SnapperKeeper would like to access your photo library</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

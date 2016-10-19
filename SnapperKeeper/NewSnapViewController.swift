@@ -28,7 +28,7 @@ class NewSnapViewController: UIViewController {
 		
         if let snapName = snapNameField.text, snapName != "" {
 			print(FIRAuth.auth()?.currentUser?.displayName)
-			let snap = Snap(snapName: snapName, snapOwner: (FIRAuth.auth()?.currentUser?.email)!, uid: (FIRAuth.auth()?.currentUser?.uid)!)
+			let snap = Snap(snapName: snapName, snapOwner: (FIRAuth.auth()?.currentUser?.displayName)!, uid: (FIRAuth.auth()?.currentUser?.uid)!)
 			snapRef.setValue(snap.toAnyObject())
 			_ = self.navigationController?.popToRootViewController(animated: true)
 			

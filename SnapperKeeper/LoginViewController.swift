@@ -53,6 +53,10 @@ class LoginViewController: UIViewController {
             showErrorAlert(title: "Login Error", msg: "You must include both an email and password to login")
         }
     }
+	
+	@IBAction func facebookLoginButtonPressed(_ sender: AnyObject) {
+		
+	}
     
     @IBAction func signupButtonPressed(_ sender: AnyObject) {
         if let email = usernameTextField.text, email != "", let password = passwordTextField.text, password != "" {

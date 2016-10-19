@@ -51,6 +51,7 @@
                                 </state>
                                 <connections>
                                     <action selector="signupButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dz4-KD-f2y"/>
+                                    <segue destination="9iQ-AX-kPb" kind="show" id="Xsy-yi-nkV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sz1-kA-YH3">
@@ -63,6 +64,16 @@
                                 </state>
                                 <connections>
                                     <action selector="lostPasswordButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gij-vd-qJx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWY-Vn-nDk">
+                                <frame key="frameInset" minX="71" minY="408" width="233" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login with Facebook">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookLoginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sTT-YA-ecn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -321,5 +332,123 @@
             </objects>
             <point key="canvasLocation" x="692" y="158.77061469265368"/>
         </scene>
+        <!--Sign UpVC-->
+        <scene sceneID="nhy-hR-cwv">
+            <objects>
+                <viewController id="9iQ-AX-kPb" customClass="SignUpVC" customModule="SnapperKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AlU-lj-yGK"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fhz-po-lHV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SXA-de-dIH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="DZH-Nh-8Oi">
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Spk-u5-9cS"/>
+                                    <constraint firstAttribute="width" constant="150" id="tlw-vr-F0P"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="X2p-XA-Aix" appends="YES" id="eFY-Nb-gBI"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5fU-1J-1lM" customClass="MaterialTextField" customModule="SnapperKeeper" customModuleProvider="target">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Cte-Wp-S18"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Lvw-Ua-4Yx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bCS-Gs-unA" customClass="MaterialTextField" customModule="SnapperKeeper" customModuleProvider="target">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="RD0-J0-D9K"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Sut-N3-N2g"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="omx-ML-zbc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hls-ef-aOJ" customClass="MaterialTextField" customModule="SnapperKeeper" customModuleProvider="target">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Wcp-x2-7Ku"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="apX-zZ-sWE"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="nUs-ev-2F7"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="rjw-rD-KFz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password Confirmation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gsZ-AE-kV6" customClass="MaterialTextField" customModule="SnapperKeeper" customModuleProvider="target">
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="VRk-px-Ecg"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="hSK-wv-nTI"/>
+                                    <constraint firstAttribute="height" constant="40" id="jvS-K2-Dzx"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="kK3-r1-olV"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="wJu-c3-hlH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkZ-SL-zY9">
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="signUpBtnPressed:" destination="9iQ-AX-kPb" eventType="touchUpInside" id="Qj6-h8-l7t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qp9-KM-95Z">
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <segue destination="FTV-pw-MNX" kind="unwind" unwindAction="unwindToLogInStoryboard:" id="XVa-Ol-wJj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gsZ-AE-kV6" firstAttribute="leading" secondItem="SXA-de-dIH" secondAttribute="leadingMargin" id="5lh-M5-dil"/>
+                            <constraint firstItem="bCS-Gs-unA" firstAttribute="trailing" secondItem="SXA-de-dIH" secondAttribute="trailingMargin" id="6pj-IO-778"/>
+                            <constraint firstItem="pkZ-SL-zY9" firstAttribute="top" secondItem="gsZ-AE-kV6" secondAttribute="bottom" constant="10" id="Afb-cu-xu0"/>
+                            <constraint firstItem="qp9-KM-95Z" firstAttribute="leading" secondItem="SXA-de-dIH" secondAttribute="leadingMargin" constant="147" id="Cii-oh-5a8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qp9-KM-95Z" secondAttribute="trailing" constant="148" id="DTQ-AK-uqV"/>
+                            <constraint firstItem="hls-ef-aOJ" firstAttribute="leading" secondItem="SXA-de-dIH" secondAttribute="leadingMargin" id="HWy-lK-jjH"/>
+                            <constraint firstItem="pkZ-SL-zY9" firstAttribute="leading" secondItem="SXA-de-dIH" secondAttribute="leadingMargin" constant="144" id="IPa-As-sK8"/>
+                            <constraint firstItem="gsZ-AE-kV6" firstAttribute="top" secondItem="hls-ef-aOJ" secondAttribute="bottom" constant="20" id="Ksp-b3-kNS"/>
+                            <constraint firstItem="DZH-Nh-8Oi" firstAttribute="top" secondItem="AlU-lj-yGK" secondAttribute="bottom" constant="8" id="Lxq-ni-HcP"/>
+                            <constraint firstItem="bCS-Gs-unA" firstAttribute="top" secondItem="5fU-1J-1lM" secondAttribute="bottom" constant="20" id="NqU-QO-LiN"/>
+                            <constraint firstItem="5fU-1J-1lM" firstAttribute="trailing" secondItem="SXA-de-dIH" secondAttribute="trailingMargin" id="SLt-YB-Xrz"/>
+                            <constraint firstItem="DZH-Nh-8Oi" firstAttribute="centerX" secondItem="SXA-de-dIH" secondAttribute="centerX" id="WZP-86-XGf"/>
+                            <constraint firstItem="5fU-1J-1lM" firstAttribute="top" secondItem="DZH-Nh-8Oi" secondAttribute="bottom" constant="53" id="a29-d9-8e0"/>
+                            <constraint firstItem="5fU-1J-1lM" firstAttribute="leading" secondItem="SXA-de-dIH" secondAttribute="leadingMargin" id="bTn-xk-ZM5"/>
+                            <constraint firstItem="hls-ef-aOJ" firstAttribute="top" secondItem="bCS-Gs-unA" secondAttribute="bottom" constant="20" id="e4V-Oa-LpW"/>
+                            <constraint firstItem="gsZ-AE-kV6" firstAttribute="trailing" secondItem="SXA-de-dIH" secondAttribute="trailingMargin" id="lvS-5D-OIX"/>
+                            <constraint firstItem="qp9-KM-95Z" firstAttribute="top" secondItem="pkZ-SL-zY9" secondAttribute="bottom" constant="10" id="mYh-3L-10V"/>
+                            <constraint firstItem="hls-ef-aOJ" firstAttribute="trailing" secondItem="SXA-de-dIH" secondAttribute="trailingMargin" id="toW-if-vXE"/>
+                            <constraint firstItem="bCS-Gs-unA" firstAttribute="leading" secondItem="SXA-de-dIH" secondAttribute="leadingMargin" id="xwD-YC-FeB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pkZ-SL-zY9" secondAttribute="trailing" constant="144" id="zgW-cN-avZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailField" destination="bCS-Gs-unA" id="kZH-L3-KjG"/>
+                        <outlet property="passwordConfirmField" destination="gsZ-AE-kV6" id="o4a-cA-l4z"/>
+                        <outlet property="passwordField" destination="hls-ef-aOJ" id="Z06-o6-4f6"/>
+                        <outlet property="userImageView" destination="DZH-Nh-8Oi" id="u0k-y6-wod"/>
+                        <outlet property="usernameField" destination="5fU-1J-1lM" id="1nE-od-u95"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n8O-iJ-yw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="FTV-pw-MNX" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="X2p-XA-Aix">
+                    <connections>
+                        <action selector="userImageTapWithSender:" destination="9iQ-AX-kPb" id="EMn-ql-n0O"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-103" y="923"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="search" width="119" height="119"/>
+    </resources>
 </document>
