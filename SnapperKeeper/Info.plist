@@ -54,5 +54,23 @@
 			</array>
 		</dict>
 	</array>
+	
+	<key>CFBundleURLTypes</key>
+	<array>
+  <dict>
+	  <key>CFBundleURLSchemes</key>
+	  <array>
+    <string>fb306215593099118</string>
+	  </array>
+  </dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>306215593099118</string>
+	<key>FacebookDisplayName</key>
+	<string>SnapperKeeper</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbauth2</string>
+	</array>
 </dict>
 </plist>

@@ -9,6 +9,8 @@
 import UIKit
 import FirebaseCore
 import FirebaseAuth
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
     
@@ -55,7 +57,19 @@ class LoginViewController: UIViewController {
     }
 	
 	@IBAction func facebookLoginButtonPressed(_ sender: AnyObject) {
-		
+		//authorize facebook
+		let facebookLogin = FBSDKLoginManager()
+		facebookLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+			if error != nil {
+				self.showErrorAlert(title: "Facebook Authentication Error", msg: (error?.localizedDescription)!)
+			} else if result?.isCancelled == true {
+				self.showErrorAlert(title: "Facebook Login Error", msg: "User cancelled authorization request")
+			} else {
+				let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+				self.firebaseAuth(credential)
+				
+			}
+		}
 	}
     
     @IBAction func signupButtonPressed(_ sender: AnyObject) {
@@ -79,6 +93,17 @@ class LoginViewController: UIViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
+	
+	func firebaseAuth(_ credential: FIRAuthCredential) {
+		FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
+			if error != nil {
+				self.showErrorAlert(title: "Firebase authentication error", msg: (error?.localizedDescription)!)
+			} else {
+				self.showErrorAlert(title: "Firebase Authentication", msg: "Successfully authenticated")
+			}
+			
+		})
+	}
     
     
 }

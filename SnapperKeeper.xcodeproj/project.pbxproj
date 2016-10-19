@@ -33,6 +33,7 @@
 		07753F781DA8368E00111D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07753F7A1DA8368E00111D52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07753F801DA836CC00111D52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0799560F1DB7F19F00F8D297 /* SnapperKeeper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SnapperKeeper.entitlements; sourceTree = "<group>"; };
 		07AD5C981DA890DA00C9A12C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		07B617201DAC856E00A5398E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		07B617221DAC8D1300A5398E /* SnapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapCell.swift; sourceTree = "<group>"; };
@@ -131,6 +132,7 @@
 		07753F6D1DA8368E00111D52 /* SnapperKeeper */ = {
 			isa = PBXGroup;
 			children = (
+				0799560F1DB7F19F00F8D297 /* SnapperKeeper.entitlements */,
 				07C13A041DA9EC5900EB1851 /* Services */,
 				070E46121DA8394F00F4A07B /* Support Files */,
 				070E46111DA8394200F4A07B /* Controller */,
@@ -195,6 +197,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = C57K6822B6;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -419,7 +426,12 @@
 			baseConfigurationReference = 07CBDC6B61274BDC12E94D3D /* Pods-SnapperKeeper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SnapperKeeper/SnapperKeeper.entitlements;
 				DEVELOPMENT_TEAM = C57K6822B6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SnapperKeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.torigian.SnapperKeeper;
@@ -433,7 +445,12 @@
 			baseConfigurationReference = 67836D3ED8BDA8F7024592C9 /* Pods-SnapperKeeper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SnapperKeeper/SnapperKeeper.entitlements;
 				DEVELOPMENT_TEAM = C57K6822B6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SnapperKeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.torigian.SnapperKeeper;

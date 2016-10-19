@@ -9,6 +9,7 @@ target 'SnapperKeeper' do
   pod ‘Firebase/Core’
   pod 'Firebase/Auth'
   pod 'FirebaseUI'
+  pod 'FBSDKLoginKit'
 
 
 end
