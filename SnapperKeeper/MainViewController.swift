@@ -7,15 +7,15 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
+import SwiftKeychainWrapper
+import Firebase
+
+//global variable UID
+let uid = KeychainWrapper.standard.string(forKey: KEY_UID)!
 
 class MainViewController: UIViewController,  UICollectionViewDataSource, UICollectionViewDelegate {
     var snaps = [Snap]()
-    let snapsRef = FIRDatabase.database().reference(withPath: "/snaps")
-	let user_id = FIRAuth.auth()?.currentUser?.uid
 	
-    
     @IBOutlet weak var profileButtonLabel: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -29,14 +29,14 @@ class MainViewController: UIViewController,  UICollectionViewDataSource, UIColle
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
         layout.itemSize = CGSize(width: 90, height: 90)
 		
-        snapsRef.queryOrdered(byChild: user_id!).queryEqual(toValue: "true").observe(.value, with: { snapshot in
+		//Firebase observer
+		DataService.ds.REF_SNAPS.queryOrdered(byChild: uid).queryEqual(toValue: "true").observe(.value, with: { snapshot in
             self.snaps = []
             
-            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                for fbSnap in snapshots {
-                    let tempSnap = Snap(snapshot: fbSnap)
-                    self.snaps.append(tempSnap)
-                    print(tempSnap.snapName)
+            if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                for snap in snapshot {
+                    let newSnap = Snap(snapshot: snap)
+                    self.snaps.append(newSnap)
                 }
             }
             self.collectionView?.reloadData()

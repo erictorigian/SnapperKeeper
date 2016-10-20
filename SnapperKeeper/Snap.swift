@@ -15,6 +15,7 @@ struct Snap {
     //MARK: -  Class Variables
     var snapName: String!
     var snapOwner: String!
+	var imageURL: String!
     var key: String!
     var ref: FIRDatabaseReference?
     var uid: String
@@ -22,9 +23,10 @@ struct Snap {
     
     
     //MARK: - Initalizers
-    init (snapName: String, snapOwner: String, uid: String) {
+	init (snapName: String, snapOwner: String, imageURL: String, uid: String) {
         self.snapName = snapName
         self.snapOwner = snapOwner
+		self.imageURL = imageURL
         self.key = ""
         self.ref = FIRDatabase.database().reference()
         self.uid = uid
@@ -35,6 +37,7 @@ struct Snap {
     init(snapshot: FIRDataSnapshot) {
         self.snapName = (snapshot.value as? NSDictionary)?["snapName"] as! String
         self.snapOwner = (snapshot.value as? NSDictionary)?["snapOwner"] as! String
+		self.imageURL = (snapshot.value as? NSDictionary)?["imageURL"] as! String
         self.key = snapshot.key
         self.ref = snapshot.ref
         self.uid = (FIRAuth.auth()?.currentUser?.uid)!
@@ -44,9 +47,8 @@ struct Snap {
     
     func toAnyObject() -> [String: AnyObject] {
         var snapDict: [String: String]
-        let uid_string = uid
         snapDict = ["snapName": snapName, "snapOwner": snapOwner,
-                    uid_string: "true"]
+                    "imageURL": imageURL, uid: "true"]
         
         return snapDict as [String : AnyObject]
     }

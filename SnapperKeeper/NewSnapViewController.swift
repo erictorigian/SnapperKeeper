@@ -8,10 +8,10 @@
 
 import UIKit
 import Firebase
-import FirebaseDatabase
-import FirebaseAuth
+import SwiftKeychainWrapper
 
 class NewSnapViewController: UIViewController {
+	var username = ""
 
     @IBOutlet weak var snapNameField: UITextField!
 	@IBOutlet weak var snapImageField: UIImageView!
@@ -19,6 +19,10 @@ class NewSnapViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		DataService.ds.REF_USERS.child(uid).observeSingleEvent(of: .value, with: {(snapshot) in
+			let value = snapshot.value as? NSDictionary
+			self.username = value?["username"] as! String })
 
     }
     
@@ -27,8 +31,7 @@ class NewSnapViewController: UIViewController {
         let snapRef = FIRDatabase.database().reference().child("snaps").childByAutoId()
 		
         if let snapName = snapNameField.text, snapName != "" {
-			print(FIRAuth.auth()?.currentUser?.displayName)
-			let snap = Snap(snapName: snapName, snapOwner: (FIRAuth.auth()?.currentUser?.displayName)!, uid: (FIRAuth.auth()?.currentUser?.uid)!)
+			let snap = Snap(snapName: snapName, snapOwner: username, imageURL: "none", uid: uid)
 			snapRef.setValue(snap.toAnyObject())
 			_ = self.navigationController?.popToRootViewController(animated: true)
 			
