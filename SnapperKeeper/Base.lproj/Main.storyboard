@@ -172,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tbp-77-Usm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421.5999999999999" y="-508.69565217391306"/>
+            <point key="canvasLocation" x="1631" y="-557"/>
         </scene>
         <!--My Snaps-->
         <scene sceneID="Kou-Gh-Rtg">
@@ -187,7 +187,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hM1-7J-OYo">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rOv-aA-Tym">
                                     <size key="itemSize" width="131" height="120"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -232,9 +232,9 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="B9f-jT-khF"/>
                                     <barButtonItem systemItem="search" id="cek-nF-ypo"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="53G-9H-v1z"/>
-                                    <barButtonItem systemItem="add" id="h79-h2-HNU">
+                                    <barButtonItem title="Profile" id="h79-h2-HNU">
                                         <connections>
-                                            <segue destination="IaE-RT-uJc" kind="show" identifier="addSnap" id="YZ6-bP-lZl"/>
+                                            <segue destination="fBv-9Y-xXR" kind="show" id="EWB-oU-B9d"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -252,15 +252,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Snaps" id="PvE-Iy-QHV">
-                        <barButtonItem key="rightBarButtonItem" title="Profile" id="1HN-nb-H1b">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1HN-nb-H1b">
                             <connections>
-                                <segue destination="fBv-9Y-xXR" kind="show" id="S5t-Hc-JC1"/>
+                                <segue destination="IaE-RT-uJc" kind="show" identifier="addSnap" id="qgo-iI-AGf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="hM1-7J-OYo" id="hGb-M8-Tkz"/>
-                        <outlet property="profileButtonLabel" destination="1HN-nb-H1b" id="Kq3-Th-eVM"/>
+                        <outlet property="profileButtonLabel" destination="h79-h2-HNU" id="O0J-k2-kw7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yJ2-Dl-ey1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -313,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="69B-ul-Pt4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1631" y="924"/>
+            <point key="canvasLocation" x="2591" y="161"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2gs-5u-6UH">
