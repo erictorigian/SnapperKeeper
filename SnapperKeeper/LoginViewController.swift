@@ -38,11 +38,18 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: AnyObject) {
         if let email = usernameTextField.text , email != "", let password = passwordTextField.text , password != "" {
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
-                if let error = error {
+				var username = ""
+				if let error = error {
                     self.showErrorAlert("Login Error", msg: error.localizedDescription)
                 } else {
                     if let user = user {
-                        self.completeSignin(id: user.uid)
+						if let name = user.displayName {
+							username = name
+						} else {
+							username = email
+						}
+						let userData = ["provider": user.providerID, "username": username]
+						self.completeSignin(uid: user.uid, userData: userData)
                     }
                 }
                 
@@ -99,7 +106,8 @@ class LoginViewController: UIViewController {
 				self.showErrorAlert("Firebase authentication error", msg: (error?.localizedDescription)!)
 			} else {
                 if let user = user {
-                    self.completeSignin(id: user.uid)
+					let userData = ["provider": credential.provider, "username": user.displayName!]
+					self.completeSignin(uid: user.uid, userData: userData)
                 }
 			}
             
@@ -107,8 +115,9 @@ class LoginViewController: UIViewController {
 		})
 	}
     
-    func completeSignin(id: String) {
-        KeychainWrapper.standard.set(id, forKey: KEY_UID)
+	func completeSignin(uid: String, userData: Dictionary<String, String>) {
+		DataService.ds.createFirebaseDBUser(uid: uid, userData: userData)
+        KeychainWrapper.standard.set(uid, forKey: KEY_UID)
         performSegue(withIdentifier: SEGUE_LOGGED_IN, sender: nil)
 
     }

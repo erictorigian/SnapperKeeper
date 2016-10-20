@@ -51,7 +51,6 @@
                                 </state>
                                 <connections>
                                     <action selector="signupButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dz4-KD-f2y"/>
-                                    <segue destination="9iQ-AX-kPb" kind="show" id="Xsy-yi-nkV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sz1-kA-YH3">
@@ -187,7 +186,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hM1-7J-OYo">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.81176470588235294" green="0.84705882352941175" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rOv-aA-Tym">
                                     <size key="itemSize" width="131" height="120"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -244,7 +243,7 @@
                         <constraints>
                             <constraint firstItem="1ql-Uh-REq" firstAttribute="trailing" secondItem="hM1-7J-OYo" secondAttribute="trailing" id="7QO-Op-MVU"/>
                             <constraint firstAttribute="trailing" secondItem="hM1-7J-OYo" secondAttribute="trailing" id="RyR-dN-0Pp"/>
-                            <constraint firstItem="agZ-QD-w9A" firstAttribute="top" secondItem="hM1-7J-OYo" secondAttribute="bottom" constant="73" id="TsU-nP-4f0"/>
+                            <constraint firstItem="agZ-QD-w9A" firstAttribute="top" secondItem="hM1-7J-OYo" secondAttribute="bottom" constant="44" id="TsU-nP-4f0"/>
                             <constraint firstItem="1ql-Uh-REq" firstAttribute="bottom" secondItem="agZ-QD-w9A" secondAttribute="top" id="bUc-sd-fph"/>
                             <constraint firstItem="1ql-Uh-REq" firstAttribute="leading" secondItem="hM1-7J-OYo" secondAttribute="leading" id="pa8-Sf-MSV"/>
                             <constraint firstItem="hM1-7J-OYo" firstAttribute="leading" secondItem="KHS-wA-JM7" secondAttribute="leading" id="u1I-Og-f6l"/>
@@ -320,9 +319,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9a0-k5-elq" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YWt-nB-fmD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="YWt-nB-fmD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.062745098039215685" green="0.47450980392156861" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
