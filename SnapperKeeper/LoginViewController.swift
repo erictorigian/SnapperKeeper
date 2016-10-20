@@ -11,6 +11,8 @@ import FirebaseCore
 import FirebaseAuth
 import FBSDKCoreKit
 import FBSDKLoginKit
+import SwiftKeychainWrapper
+
 
 class LoginViewController: UIViewController {
     
@@ -20,14 +22,16 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
         
+		
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        if (FIRAuth.auth()?.currentUser) != nil {
+		
+		
+		if (FIRAuth.auth()?.currentUser) != nil {
             performSegue(withIdentifier: SEGUE_LOGGED_IN, sender: nil)
         }
 
@@ -39,7 +43,7 @@ class LoginViewController: UIViewController {
         if let email = usernameTextField.text , email != "", let password = passwordTextField.text , password != "" {
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
                 if let error = error {
-                    self.showErrorAlert(title: "Login Error", msg: error.localizedDescription)
+                    self.showErrorAlert("Login Error", msg: error.localizedDescription)
                 } else {
                     if user != nil {
                         self.performSegue(withIdentifier: SEGUE_LOGGED_IN, sender: nil)
@@ -52,7 +56,7 @@ class LoginViewController: UIViewController {
             })
             
         } else {
-            showErrorAlert(title: "Login Error", msg: "You must include both an email and password to login")
+            showErrorAlert("Login Error", msg: "You must include both an email and password to login")
         }
     }
 	
@@ -60,10 +64,10 @@ class LoginViewController: UIViewController {
 		//authorize facebook
 		let facebookLogin = FBSDKLoginManager()
 		facebookLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
-			if error != nil {
-				self.showErrorAlert(title: "Facebook Authentication Error", msg: (error?.localizedDescription)!)
+			if let error = error {
+				self.showErrorAlert("Facebook Authentication Error", msg: error.localizedDescription)
 			} else if result?.isCancelled == true {
-				self.showErrorAlert(title: "Facebook Login Error", msg: "User cancelled authorization request")
+				self.showErrorAlert("Facebook Login Error", msg: "User cancelled authorization request")
 			} else {
 				let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
 				self.firebaseAuth(credential)
@@ -76,7 +80,7 @@ class LoginViewController: UIViewController {
         if let email = usernameTextField.text, email != "", let password = passwordTextField.text, password != "" {
             FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: {( user, error) in
                 if let error = error {
-                    self.showErrorAlert(title: "User Creation Error", msg: error.localizedDescription)
+                    self.showErrorAlert("User Creation Error", msg: error.localizedDescription)
                 } else {
                     print("user created")
                 }
@@ -87,7 +91,7 @@ class LoginViewController: UIViewController {
     @IBAction func lostPasswordButtonPressed(_ sender: AnyObject) {
     }
     
-    func showErrorAlert(title: String, msg: String) {
+    func showErrorAlert(_ title: String, msg: String) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert )
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action)
@@ -97,9 +101,9 @@ class LoginViewController: UIViewController {
 	func firebaseAuth(_ credential: FIRAuthCredential) {
 		FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
 			if error != nil {
-				self.showErrorAlert(title: "Firebase authentication error", msg: (error?.localizedDescription)!)
+				self.showErrorAlert("Firebase authentication error", msg: (error?.localizedDescription)!)
 			} else {
-				self.showErrorAlert(title: "Firebase Authentication", msg: "Successfully authenticated")
+				self.showErrorAlert("Firebase Authentication", msg: "Successfully authenticated")
 			}
 			
 		})

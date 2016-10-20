@@ -31,15 +31,15 @@ struct NetworkingServices {
 		return FIRDatabase.database().reference(withPath: "online")
 	}
     
-    private func saveUserInfo(user: FIRUser, username: String, password: String) {
+    fileprivate func saveUserInfo(_ user: FIRUser, username: String, password: String) {
         //build User Dictionary
         let userInfo = ["email": user.email!, "username": username, "uid": user.uid, "photoURL": String(describing: user.photoURL!)]
         let userRef = databaseRef.child("users").child(user.uid)
         userRef.setValue(userInfo)
-        signInUser(email: user.email!, password: password)
+        signInUser(user.email!, password: password)
     }
     
-    func signInUser(email: String, password: String) {
+    func signInUser(_ email: String, password: String) {
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if error == nil {
                 if let user = user {
@@ -54,7 +54,7 @@ struct NetworkingServices {
         
     }
     
-    private func setUserInfo(user: FIRUser, username: String, password: String, data: NSData!) {
+    fileprivate func setUserInfo(_ user: FIRUser, username: String, password: String, data: Data!) {
         let imagePath = "profileImage\(user.uid)/userPic.jpg"
         
         let imageRef = storeageRef.child(imagePath)
@@ -72,7 +72,7 @@ struct NetworkingServices {
                     if error != nil {
                         print("setUserInfo error\(error?.localizedDescription)")
                     } else {
-                        self.saveUserInfo(user: user, username: username, password: password)
+                        self.saveUserInfo(user, username: username, password: password)
                     }
                 })
             } else {
@@ -81,10 +81,10 @@ struct NetworkingServices {
         }
     }
 
-    func createUser(email: String, username: String, password: String, data: NSData!) {
+    func createUser(_ email: String, username: String, password: String, data: Data!) {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
             if error == nil {
-                self.setUserInfo(user: user!, username: username, password: password, data: data)
+                self.setUserInfo(user!, username: username, password: password, data: data)
             } else {
                 print("createUser error \(error!.localizedDescription)")
             }
@@ -92,7 +92,7 @@ struct NetworkingServices {
         })
     }
     
-    func resetPwd(email: String) {
+    func resetPwd(_ email: String) {
         FIRAuth.auth()?.sendPasswordReset(withEmail: email, completion: { (error) in
             if error == nil {
                 print("an email with instructions on how to reset your password has been emailed to you")
