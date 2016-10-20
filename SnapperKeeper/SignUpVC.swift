@@ -77,7 +77,7 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
 	
 	@IBAction func signUpBtnPressed(_ sender: AnyObject) {
         let data = UIImageJPEGRepresentation(userImageView.image!, 0.8)
-        networkingService.createUser(emailField.text!, username: usernameField.text!, password: passwordField.text!, data: data as Data!)
+        networkingService.createUser(emailField.text!, username: usernameField.text!, password: passwordField.text!, data: data)
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")
         self.present(vc, animated: true, completion: nil)
 

@@ -21,17 +21,13 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
 		
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
-		
-		
-		if (FIRAuth.auth()?.currentUser) != nil {
+
+        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
             performSegue(withIdentifier: SEGUE_LOGGED_IN, sender: nil)
         }
 
@@ -45,9 +41,8 @@ class LoginViewController: UIViewController {
                 if let error = error {
                     self.showErrorAlert("Login Error", msg: error.localizedDescription)
                 } else {
-                    if user != nil {
-                        self.performSegue(withIdentifier: SEGUE_LOGGED_IN, sender: nil)
-                        print("user: \(user) logged in")
+                    if let user = user {
+                        self.completeSignin(id: user.uid)
                     }
                 }
                 
@@ -103,11 +98,20 @@ class LoginViewController: UIViewController {
 			if error != nil {
 				self.showErrorAlert("Firebase authentication error", msg: (error?.localizedDescription)!)
 			} else {
-				self.showErrorAlert("Firebase Authentication", msg: "Successfully authenticated")
+                if let user = user {
+                    self.completeSignin(id: user.uid)
+                }
 			}
+            
 			
 		})
 	}
+    
+    func completeSignin(id: String) {
+        KeychainWrapper.standard.set(id, forKey: KEY_UID)
+        performSegue(withIdentifier: SEGUE_LOGGED_IN, sender: nil)
+
+    }
     
     
 }

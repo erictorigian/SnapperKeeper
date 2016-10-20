@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import SwiftKeychainWrapper
 
 class ProfileViewController: UIViewController {
     
@@ -57,6 +58,7 @@ class ProfileViewController: UIViewController {
         if FIRAuth.auth()?.currentUser != nil {
             do {
                 try FIRAuth.auth()?.signOut()
+                KeychainWrapper.standard.removeObject(forKey: KEY_UID)
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")
                 self.present(vc, animated: true, completion: nil)
                 
