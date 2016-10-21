@@ -15,6 +15,7 @@ let uid = KeychainWrapper.standard.string(forKey: KEY_UID)!
 
 class MainViewController: UIViewController,  UICollectionViewDataSource, UICollectionViewDelegate {
     var snaps = [Snap]()
+	var indexPath = 0
 	
     @IBOutlet weak var profileButtonLabel: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -66,7 +67,21 @@ class MainViewController: UIViewController,  UICollectionViewDataSource, UIColle
         cell.imageView.backgroundColor = UIColor.blue
         return cell
     }
-    
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+	}
+	
+	
+	//MARK: - Segue overrides
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == SEGUE_SHOW_SNAP_DETAILS {
+			let vc = segue.destination as! SnapDetailViewController
+			let indexPath = collectionView.indexPath(for: sender as! UICollectionViewCell)
+			vc.snap = snaps[(indexPath?.row)!]
+		}
+		
+	}
     
     
     

@@ -221,6 +221,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="jJ2-ZE-pb8" id="Y7I-4R-7La"/>
                                             <outlet property="nameLabel" destination="07G-pO-nky" id="CiX-C8-re4"/>
+                                            <segue destination="zDb-ui-aOO" kind="show" identifier="showSnapDetails" id="UzS-G5-dVs"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -265,6 +266,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yJ2-Dl-ey1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1631.2" y="158.77061469265368"/>
+        </scene>
+        <!--Snap Name-->
+        <scene sceneID="kGM-pd-bjE">
+            <objects>
+                <viewController id="zDb-ui-aOO" customClass="SnapDetailViewController" customModule="SnapperKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tee-Pp-3FP"/>
+                        <viewControllerLayoutGuide type="bottom" id="XoY-sH-U5X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AnC-lw-4QM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Snap Name" id="Pge-Dm-lLU"/>
+                    <connections>
+                        <outlet property="snapNameLabel" destination="Pge-Dm-lLU" id="3XL-pn-hQa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rT2-B1-9ZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1630" y="913"/>
         </scene>
         <!--New Snap-->
         <scene sceneID="0ov-k7-HBF">
@@ -319,7 +342,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9a0-k5-elq" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="YWt-nB-fmD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YWt-nB-fmD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.062745098039215685" green="0.47450980392156861" blue="1" alpha="1" colorSpace="calibratedRGB"/>

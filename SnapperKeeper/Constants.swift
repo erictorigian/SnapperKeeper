@@ -22,9 +22,8 @@ let CELL_SNAPS = "SnapCell"
 let SEGUE_LOGGED_IN = "loggedIn"
 let SEGUE_SHOW_PROFILE = "showProfile"
 let SEGUE_LOG_OUT = "signOut"
-let SEGUE_LIST_DETAILS = "showListDetails"
 let SEGUE_ADD_SNAP = "addSnap"
-
+let SEGUE_SHOW_SNAP_DETAILS = "showSnapDetails"
 
 //Status codes
 let STATUS_ACCOUNT_NONEXISTS = 17011

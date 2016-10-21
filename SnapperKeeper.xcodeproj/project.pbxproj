@@ -19,6 +19,7 @@
 		07B617251DAC956A00A5398E /* NewSnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B617241DAC956A00A5398E /* NewSnapViewController.swift */; };
 		07C13A061DA9EC6900EB1851 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C13A051DA9EC6900EB1851 /* Constants.swift */; };
 		07C13A081DA9ECFF00EB1851 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C13A071DA9ECFF00EB1851 /* MainViewController.swift */; };
+		07CAD1AB1DBA9F3000FF66C9 /* SnapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CAD1AA1DBA9F3000FF66C9 /* SnapDetailViewController.swift */; };
 		07ECA8101DB0045400FF8EE5 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ECA80F1DB0045400FF8EE5 /* SignUpVC.swift */; };
 		07ECA8121DB004C700FF8EE5 /* NetworkingServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ECA8111DB004C700FF8EE5 /* NetworkingServices.swift */; };
 		07FACC941DAEE62F00A43557 /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FACC931DAEE62F00A43557 /* Snap.swift */; };
@@ -41,6 +42,7 @@
 		07B617241DAC956A00A5398E /* NewSnapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSnapViewController.swift; sourceTree = "<group>"; };
 		07C13A051DA9EC6900EB1851 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		07C13A071DA9ECFF00EB1851 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		07CAD1AA1DBA9F3000FF66C9 /* SnapDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapDetailViewController.swift; sourceTree = "<group>"; };
 		07CBDC6B61274BDC12E94D3D /* Pods-SnapperKeeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapperKeeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnapperKeeper/Pods-SnapperKeeper.debug.xcconfig"; sourceTree = "<group>"; };
 		07ECA80F1DB0045400FF8EE5 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		07ECA8111DB004C700FF8EE5 /* NetworkingServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingServices.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				07C13A071DA9ECFF00EB1851 /* MainViewController.swift */,
 				07B617201DAC856E00A5398E /* ProfileViewController.swift */,
 				07B617241DAC956A00A5398E /* NewSnapViewController.swift */,
+				07CAD1AA1DBA9F3000FF66C9 /* SnapDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				07C13A081DA9ECFF00EB1851 /* MainViewController.swift in Sources */,
 				07B617251DAC956A00A5398E /* NewSnapViewController.swift in Sources */,
 				07ECA8101DB0045400FF8EE5 /* SignUpVC.swift in Sources */,
+				07CAD1AB1DBA9F3000FF66C9 /* SnapDetailViewController.swift in Sources */,
 				07FACC941DAEE62F00A43557 /* Snap.swift in Sources */,
 				07ECA8121DB004C700FF8EE5 /* NetworkingServices.swift in Sources */,
 			);
