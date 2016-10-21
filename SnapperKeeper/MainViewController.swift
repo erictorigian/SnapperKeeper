@@ -60,12 +60,14 @@ class MainViewController: UIViewController,  UICollectionViewDataSource, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_SNAPS, for: indexPath) as! SnapCell
-        
-        // Configure the cell
-        cell.nameLabel.text = snaps[indexPath.row].snapName
-        cell.imageView.backgroundColor = UIColor.blue
-        return cell
+		
+		if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_SNAPS, for: indexPath) as? SnapCell {
+			cell.configureCell(snap: snaps[indexPath.row])
+			return cell
+		} else {
+			return SnapCell()
+		}
+		
     }
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

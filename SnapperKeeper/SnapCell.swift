@@ -11,7 +11,13 @@ import UIKit
 class SnapCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    
-
+	
+	func configureCell(snap: Snap) {
+		self.nameLabel.text = snap.snapName
+		
+		self.imageView.backgroundColor = UIColor.blue
+		
+		
+	}
     
 }
