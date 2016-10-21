@@ -8,47 +8,69 @@
 
 import Foundation
 import Firebase
-import FirebaseAuth
 
-struct Snap {
+class Snap {
     
-    //MARK: -  Class Variables
-    var snapName: String!
-    var snapOwner: String!
-	var imageURL: String!
-    var key: String!
-    var ref: FIRDatabaseReference?
-    var uid: String
-    
-    
+    //MARK: -  private Class Variables
+    private var _snapName: String!
+    private var _snapOwner: String!
+	private var _imageURL: String!
+    private var _key: String!
+    private var _ref: FIRDatabaseReference?
+	private var _snapUID: String!
+	
+    //MARK: - public getters
+	var snapName: String {
+		return _snapName
+	}
+	
+	var snapOwner: String {
+		return _snapOwner
+	}
+	
+	var imageURL: String {
+		return _imageURL
+	}
+	
+	var key: String {
+		return _key
+	}
+	
+	var ref: FIRDatabaseReference {
+		return _ref!
+	}
+	
+	var snapUID: String {
+		return _snapUID
+	}
     
     //MARK: - Initalizers
 	init (snapName: String, snapOwner: String, imageURL: String, uid: String) {
-        self.snapName = snapName
-        self.snapOwner = snapOwner
-		self.imageURL = imageURL
-        self.key = ""
-        self.ref = FIRDatabase.database().reference()
-        self.uid = uid
-        
+        self._snapName = snapName
+        self._snapOwner = snapOwner
+		self._imageURL = imageURL
+        self._key = ""
+        self._ref = FIRDatabase.database().reference()
+		self._snapUID = uid
+		
         
     }
     
     init(snapshot: FIRDataSnapshot) {
-        self.snapName = (snapshot.value as? NSDictionary)?["snapName"] as! String
-        self.snapOwner = (snapshot.value as? NSDictionary)?["snapOwner"] as! String
-		self.imageURL = (snapshot.value as? NSDictionary)?["imageURL"] as! String
-        self.key = snapshot.key
-        self.ref = snapshot.ref
-        self.uid = (FIRAuth.auth()?.currentUser?.uid)!
-        
+        self._snapName = (snapshot.value as? NSDictionary)?["snapName"] as! String
+        self._snapOwner = (snapshot.value as? NSDictionary)?["snapOwner"] as! String
+		self._imageURL = (snapshot.value as? NSDictionary)?["imageURL"] as! String
+        self._key = snapshot.key
+        self._ref = snapshot.ref
+		self._snapUID = uid
+		
     }
     
-    
+    //MARK: - convert functions
     func toAnyObject() -> [String: AnyObject] {
         var snapDict: [String: String]
-        snapDict = ["snapName": snapName, "snapOwner": snapOwner,
-                    "imageURL": imageURL, uid: "true"]
+        snapDict = ["snapName": _snapName, "snapOwner": _snapOwner,
+                    "imageURL": _imageURL, uid: "true"]
         
         return snapDict as [String : AnyObject]
     }

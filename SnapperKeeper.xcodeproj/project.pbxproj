@@ -190,7 +190,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Eric Torigian";
 				TargetAttributes = {
 					07753F6A1DA8368E00111D52 = {
@@ -426,6 +426,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 07CBDC6B61274BDC12E94D3D /* Pods-SnapperKeeper.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SnapperKeeper/SnapperKeeper.entitlements;
 				DEVELOPMENT_TEAM = C57K6822B6;
@@ -445,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 67836D3ED8BDA8F7024592C9 /* Pods-SnapperKeeper.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SnapperKeeper/SnapperKeeper.entitlements;
 				DEVELOPMENT_TEAM = C57K6822B6;
