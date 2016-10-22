@@ -16,13 +16,13 @@ class NewSnapViewController: UIViewController, UINavigationControllerDelegate, U
 	var username = ""
 	var imagePicker: UIImagePickerController!
 	
-    @IBOutlet weak var snapNameField: UITextField!
+	@IBOutlet weak var snapNameField: UITextField!
 	@IBOutlet weak var snapImageField: UIImageView!
-    @IBOutlet weak var snapCommentsField: UITextView!
-    @IBOutlet weak var snapTagsField: UITextField!
+	@IBOutlet weak var snapCommentsField: UITextView!
+	@IBOutlet weak var snapTagsField: UITextField!
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		
 		imagePicker = UIImagePickerController()
 		imagePicker.allowsEditing = true
@@ -31,22 +31,61 @@ class NewSnapViewController: UIViewController, UINavigationControllerDelegate, U
 		DataService.ds.REF_USERS.child(uid).observeSingleEvent(of: .value, with: {(snapshot) in
 			let value = snapshot.value as? NSDictionary
 			self.username = value?["username"] as! String })
-
-    }
-    
-    //MARK: - IBActions
-    @IBAction func saveSnapButtonPressed(_ sender: AnyObject) {
-        let snapRef = FIRDatabase.database().reference().child("snaps").childByAutoId()
 		
-        if let snapName = snapNameField.text, snapName != "" {
-			let snap = Snap(snapName: snapName, snapOwner: username,
-			                snapComments: snapCommentsField.text, imageURL: "none", uid: uid)
-			snapRef.setValue(snap.toAnyObject())
-			_ = self.navigationController?.popToRootViewController(animated: true)
+	}
+	
+	func showErrorAlert(_ title: String, msg: String) {
+		let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert )
+		let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+		alert.addAction(action)
+		present(alert, animated: true, completion: nil)
+	}
+	
+	
+	//MARK: - IBActions
+	@IBAction func saveSnapButtonPressed(_ sender: AnyObject) {
+		guard let snapName = snapNameField.text , snapName != "" else {
+			showErrorAlert("Save new Snap Error", msg: "Every snap must have a name")
+			return
+		}
+		
+		guard let image = snapImageField.image else {
+			showErrorAlert("Save snap error", msg: "You must select an image")
+			return
+		}
+		
+		guard let comments = snapCommentsField.text, comments != "" else {
+			showErrorAlert("Save snap erorr", msg: "You must enter comments for the snap")
+			return
+		}
+		
+		if let imgData = UIImageJPEGRepresentation(image, 0.2) {
+			let imageUID = NSUUID().uuidString
+			let metaData = FIRStorageMetadata()
+			metaData.contentType = "image/jpg"
 			
-        }
-    }
-   
+			DataService.ds.REF_SNAP_IMAGE_STORAGE.child(imageUID).put(imgData, metadata: metaData) { (metadata, error) in
+				if let error = error {
+					self.showErrorAlert("Error uploading image", msg: error.localizedDescription)
+				} else {
+					let downloadURL = metadata?.downloadURL()?.absoluteString
+					
+					let snapRef = DataService.ds.REF_SNAPS.childByAutoId()
+					
+					let snap = Snap(snapName: snapName, snapOwner: self.username,
+					                snapComments: self.snapCommentsField.text, imageURL: downloadURL!, uid: uid)
+					
+					snapRef.setValue(snap.toAnyObject())
+					
+					_ = self.navigationController?.popToRootViewController(animated: true)
+					
+				}
+				
+			}
+		}
+	}
+	
+	
 	@IBAction func imageTapped(_ sender: AnyObject) {
 		present(imagePicker, animated: true, completion: nil)
 	}
