@@ -22,7 +22,7 @@ class SnapCell: UICollectionViewCell {
 			self.imageView.image = img
 		} else {
 			let ref = FIRStorage.storage().reference(forURL: snap.imageURL)
-			ref.data(withMaxSize: 2 * 1024 * 1024, completion: {(data, error) in
+			ref.data(withMaxSize: 3 * 1024 * 1024, completion: {(data, error) in
 				if error != nil {
 					print("SnapCell unable to download image: \(error?.localizedDescription)")
 				} else {

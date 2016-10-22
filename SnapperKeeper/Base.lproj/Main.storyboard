@@ -206,7 +206,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jJ2-ZE-pb8"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jJ2-ZE-pb8"/>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -352,39 +352,58 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Snap Tags" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PKS-PV-HVV">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3sl-bB-8HJ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="A9C-8D-iiY">
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="425" id="bYI-RZ-BsF"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Vrw-Za-RRm" appends="YES" id="Xvm-DQ-liR"/>
                                 </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdn-q6-ec0">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="I2t-eN-QLj"/>
-                                </constraints>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveSnapButtonPressed:" destination="IaE-RT-uJc" eventType="touchUpInside" id="lnA-dF-zVb"/>
-                                </connections>
-                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cO3-Cz-qom">
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="A9C-8D-iiY" firstAttribute="leading" secondItem="2rE-x1-KgW" secondAttribute="leadingMargin" id="6Yw-wa-zMf"/>
+                            <constraint firstItem="cO3-Cz-qom" firstAttribute="leading" secondItem="2rE-x1-KgW" secondAttribute="leadingMargin" constant="-8" id="6rm-kN-nPX"/>
                             <constraint firstItem="A9C-8D-iiY" firstAttribute="leading" secondItem="Ns7-zX-On8" secondAttribute="leading" id="8Qg-gh-xBx"/>
-                            <constraint firstItem="Ns7-zX-On8" firstAttribute="centerX" secondItem="rdn-q6-ec0" secondAttribute="centerX" id="MEq-ql-UWn"/>
+                            <constraint firstItem="PKS-PV-HVV" firstAttribute="trailing" secondItem="Ns7-zX-On8" secondAttribute="trailing" id="AJQ-NS-ctU"/>
+                            <constraint firstItem="PKS-PV-HVV" firstAttribute="top" secondItem="cO3-Cz-qom" secondAttribute="bottom" constant="8" symbolic="YES" id="D1c-dC-bBi"/>
+                            <constraint firstItem="cO3-Cz-qom" firstAttribute="top" secondItem="Ns7-zX-On8" secondAttribute="bottom" constant="8" symbolic="YES" id="Osr-rQ-78Q"/>
                             <constraint firstItem="A9C-8D-iiY" firstAttribute="top" secondItem="zpW-dx-sZG" secondAttribute="bottom" constant="8" symbolic="YES" id="QGc-HV-xgX"/>
-                            <constraint firstItem="rdn-q6-ec0" firstAttribute="top" secondItem="Ns7-zX-On8" secondAttribute="bottom" constant="19" id="YgC-jQ-e6e"/>
+                            <constraint firstItem="cO3-Cz-qom" firstAttribute="centerX" secondItem="Ns7-zX-On8" secondAttribute="centerX" id="X6r-1h-OB0"/>
                             <constraint firstItem="Ns7-zX-On8" firstAttribute="top" secondItem="A9C-8D-iiY" secondAttribute="bottom" constant="17" id="cSz-ys-YXJ"/>
                             <constraint firstItem="A9C-8D-iiY" firstAttribute="trailing" secondItem="2rE-x1-KgW" secondAttribute="trailingMargin" id="cgq-s3-O5E"/>
+                            <constraint firstItem="PKS-PV-HVV" firstAttribute="leading" secondItem="Ns7-zX-On8" secondAttribute="leading" id="ggo-Z4-gf1"/>
+                            <constraint firstItem="PKS-PV-HVV" firstAttribute="bottom" secondItem="lMI-fr-bep" secondAttribute="top" id="u7r-aY-6wR"/>
                             <constraint firstItem="A9C-8D-iiY" firstAttribute="trailing" secondItem="Ns7-zX-On8" secondAttribute="trailing" id="wpb-jw-u9T"/>
-                            <constraint firstItem="lMI-fr-bep" firstAttribute="top" secondItem="rdn-q6-ec0" secondAttribute="bottom" constant="287" id="yC2-T7-tzY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New Snap" id="fsU-Vo-8Xb"/>
+                    <navigationItem key="navigationItem" title="New Snap" id="fsU-Vo-8Xb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="piO-dC-Uxe">
+                            <connections>
+                                <action selector="saveSnapButtonPressed:" destination="IaE-RT-uJc" id="NML-DP-xwP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="snapCommentsField" destination="cO3-Cz-qom" id="v8t-tN-855"/>
                         <outlet property="snapImageField" destination="A9C-8D-iiY" id="EGD-EC-eVC"/>
                         <outlet property="snapNameField" destination="Ns7-zX-On8" id="QND-1f-Qn8"/>
+                        <outlet property="snapTagsField" destination="PKS-PV-HVV" id="H4M-Fe-Yud"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="69B-ul-Pt4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -394,7 +413,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2598" y="181"/>
+            <point key="canvasLocation" x="2597.5999999999999" y="180.35982008995504"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2gs-5u-6UH">

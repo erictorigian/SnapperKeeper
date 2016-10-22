@@ -18,7 +18,8 @@ class NewSnapViewController: UIViewController, UINavigationControllerDelegate, U
 	
     @IBOutlet weak var snapNameField: UITextField!
 	@IBOutlet weak var snapImageField: UIImageView!
-	
+    @IBOutlet weak var snapCommentsField: UITextView!
+    @IBOutlet weak var snapTagsField: UITextField!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class NewSnapViewController: UIViewController, UINavigationControllerDelegate, U
 		
         if let snapName = snapNameField.text, snapName != "" {
 			let snap = Snap(snapName: snapName, snapOwner: username,
-			                snapComments: "none", imageURL: "none", uid: uid)
+			                snapComments: snapCommentsField.text, imageURL: "none", uid: uid)
 			snapRef.setValue(snap.toAnyObject())
 			_ = self.navigationController?.popToRootViewController(animated: true)
 			
