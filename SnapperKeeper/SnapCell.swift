@@ -14,7 +14,7 @@ class SnapCell: UICollectionViewCell {
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var imageView: UIImageView!
 	
-	func configureCell(snap: Snap, img: UIImage?) {
+	func configureCell(snap: Snap, img: UIImage? = nil) {
 		self.nameLabel.text = snap.snapName
 		
 		//check for passed image from queue or else get it from firebase

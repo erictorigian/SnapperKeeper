@@ -66,7 +66,7 @@ class MainViewController: UIViewController,  UICollectionViewDataSource, UIColle
 				cell.configureCell(snap: snaps[indexPath.row], img: img)
 				return cell
 			} else {
-				cell.configureCell(snap: snaps[indexPath.row], img: nil)
+				cell.configureCell(snap: snaps[indexPath.row])
 				return cell
 			}
 		} else {

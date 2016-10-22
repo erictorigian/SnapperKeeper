@@ -38,7 +38,8 @@ class NewSnapViewController: UIViewController, UINavigationControllerDelegate, U
         let snapRef = FIRDatabase.database().reference().child("snaps").childByAutoId()
 		
         if let snapName = snapNameField.text, snapName != "" {
-			let snap = Snap(snapName: snapName, snapOwner: username, imageURL: "none", uid: uid)
+			let snap = Snap(snapName: snapName, snapOwner: username,
+			                snapComments: "none", imageURL: "none", uid: uid)
 			snapRef.setValue(snap.toAnyObject())
 			_ = self.navigationController?.popToRootViewController(animated: true)
 			

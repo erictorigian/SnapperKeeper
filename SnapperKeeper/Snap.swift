@@ -15,6 +15,7 @@ class Snap {
     private var _snapName: String!
     private var _snapOwner: String!
 	private var _imageURL: String!
+    private var _snapComments: String!
     private var _key: String!
     private var _ref: FIRDatabaseReference?
 	private var _snapUID: String!
@@ -31,6 +32,10 @@ class Snap {
 	var imageURL: String {
 		return _imageURL
 	}
+    
+    var snapComments: String {
+        return _snapComments
+    }
 	
 	var key: String {
 		return _key
@@ -45,9 +50,10 @@ class Snap {
 	}
     
     //MARK: - Initalizers
-	init (snapName: String, snapOwner: String, imageURL: String, uid: String) {
+    init (snapName: String, snapOwner: String, snapComments: String, imageURL: String, uid: String) {
         self._snapName = snapName
         self._snapOwner = snapOwner
+        self._snapComments = snapComments
 		self._imageURL = imageURL
         self._key = ""
         self._ref = FIRDatabase.database().reference()
@@ -59,6 +65,7 @@ class Snap {
     init(snapshot: FIRDataSnapshot) {
         self._snapName = (snapshot.value as? NSDictionary)?["snapName"] as! String
         self._snapOwner = (snapshot.value as? NSDictionary)?["snapOwner"] as! String
+        self._snapComments = (snapshot.value as? NSDictionary)?["snapComments"] as! String
 		self._imageURL = (snapshot.value as? NSDictionary)?["imageURL"] as! String
         self._key = snapshot.key
         self._ref = snapshot.ref
@@ -70,7 +77,7 @@ class Snap {
     func toAnyObject() -> [String: AnyObject] {
         var snapDict: [String: String]
         snapDict = ["snapName": _snapName, "snapOwner": _snapOwner,
-                    "imageURL": _imageURL, uid: "true"]
+                    "snapComments": _snapComments, "imageURL": _imageURL, uid: "true"]
         
         return snapDict as [String : AnyObject]
     }
